@@ -1,0 +1,38 @@
+<div class="container my-4">
+  <div class="row justify-content-md-center">
+    <div class="col-12 col-md-10 ">
+      <div class="card">
+        <div class="card-body">
+          <span class="h3">Listado de Pastoreadores</span>
+          <div class="btn btn-primary col-12 float-end" routerLink="/crear-pastoreador">Agregar</div>
+          <h5 *ngIf="pastoreadores.length === 0">No hay usuarios creados</h5>
+          <div class="row table-responsive mt-5">
+            <table *ngIf="pastoreadores.length > 0" class="table table-sm table-hover table-hover">
+              <thead>
+                <tr>
+                  <th>Nombre</th>
+                  <th>Teléfono</th>
+                  <th>Genero</th>
+                  <th>Vivienda</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let usuario of pastoreadores">
+                  <td class="text-nowrap pe-2">{{usuario.nombre}} {{usuario.apellido}}</td>
+                  <td class="text-nowrap pe-2">{{usuario.telefono}}</td>
+                  <td class="text-nowrap pe-2">{{usuario.genero}}</td>
+                  <td class="text-nowrap pe-2">{{usuario.vivienda}}</td>
+                  <td class="text-nowrap pe-2">
+                    <i class="bi bi-eye fs-5 text text-primary me-2" [routerLink]="['/pastoreador/', usuario.id]"></i>
+                    <i class="bi bi-pencil-square fs-5 text text-primary me-2" [routerLink]="['/editar-usuario/', usuario.id]"></i>
+                    <i class="bi bi-trash3 fs-5 text-danger text"></i>
+                  </td>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

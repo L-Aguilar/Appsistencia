@@ -1,0 +1,29 @@
+<div class="table-responsive mx-2">
+  <table *ngIf="usuarios.length > 0" class="table table-sm table-hover table-hover">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Teléfono</th>
+        <th>Vivienda</th>
+        <th>Pastoreador</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let usuario of usuariosPage">
+        <td class="text-nowrap pe-2">{{usuario.nombre}}</td>
+        <td class="text-nowrap pe-2">{{usuario.telefono}}</td>
+        <td class="text-nowrap pe-2">{{usuario.vivienda}}</td>
+        <td class="text-nowrap pe-2">{{usuario.pastoreador}}</td>
+        <td class="text-nowrap pe-2">
+          <i class="bi bi-eye fs-5 text text-primary me-2" [routerLink]="['/ver-teen/', usuario.id]"></i>
+          <i class="bi bi-pencil-square fs-5 text text-primary me-2" [routerLink]="['/editar-usuario/', usuario.id]"></i>
+          <!-- <i (click)="eliminarUsuario(usuario.id)" class="bi bi-trash3 fs-5 text-danger text"></i> -->
+        </td>
+    </tbody>
+    <app-navigation
+      [usuarios]="usuarios"
+      (onUserPorPage)="showTabla( $event )">
+    </app-navigation>
+  </table>
+</div>

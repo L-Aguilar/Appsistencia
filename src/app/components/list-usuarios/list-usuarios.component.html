@@ -1,0 +1,18 @@
+<div class="container my-4">
+  <div class="row justify-content-md-center">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="row mb-2">
+            <span class="h3 col-12 col-md-10 float-start">Listado de Usuarios</span>
+            <button type="button" class="btn btn-primary col-12 col-md-2 float-end" routerLink="/crear-usuario">Agregar</button>
+            <h5 *ngIf="usuarios.length === 0">No hay usuarios creados</h5>
+          </div>
+          <div class="row d-block">
+            <app-tabla [usuarios]="usuarios"></app-tabla>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
